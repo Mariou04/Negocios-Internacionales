@@ -323,7 +323,7 @@ async function s3(){
  map.classList.add('eco');
  const SV='<div class="sv"><b>SECTORES</b>'+['Tecnología','Turismo','Telecomunicaciones','Comercio','Finanzas','Transporte'].map(x=>'<span>'+x+'</span>').join('')+'</div>';
  const box=document.createElement('div');box.id='eco';
- box.innerHTML='<div class="eu">% DEL PIB</div><div class="ec">'+ECO.map(e=>`<div class="col"><div class="bw"><div class="ev" style="color:${e[3]}">0,0%</div><div class="eb" style="background:${e[2]}">${e[0]=='SERVICIOS'?SV:''}</div></div><div class="en">${e[0]}</div></div>`).join('')+'</div><div class="es">Servicios: 2024 (Banco Mundial) · resto: 2025, cifras preliminares (BNS Moldavia) · Tecnología (TIC) forma parte de Servicios</div>';
+ box.innerHTML='<div class="eu">% DEL PIB</div><div class="ec">'+ECO.map(e=>`<div class="col"><div class="bw"><div class="ev" style="color:${e[3]}">0,0%</div><div class="eb" style="background:${e[2]}">${e[0]=='SERVICIOS'?SV:''}</div></div><div class="en">${e[0]}</div></div>`).join('')+'</div><div class="es">Servicios: 2025 (Banco Mundial) · resto: 2025, cifras preliminares (BNS Moldavia) · Tecnología (TIC) forma parte de Servicios</div>';
  $('#ov').appendChild(box);const cols=[...box.querySelectorAll('.col')];
  const draw=t=>cols.forEach((c,i)=>{const p=Math.max(0,Math.min(1,(t-i*.06)/.82)),ev=c.querySelector('.ev'),eb=c.querySelector('.eb'),mh=c.querySelector('.bw').clientHeight-ev.offsetHeight-8;
   ev.textContent=(ECO[i][1]*p).toFixed(1).replace('.',',')+'%';eb.style.height=Math.max(0,p*ECO[i][1]/62.3*mh)+'px'});
@@ -376,7 +376,7 @@ async function sImp(){
  const arcs=IMP.map((q,i)=>{const a=arc(pos[i],CHI,q[4]),l=ln(IMC[i]);l.classList.add('fl');l.style.strokeWidth=(2+q[2]*.18)+'px';l.style.strokeLinecap='round';return{a,l}});
  const ov=$('#ov'),ip=document.createElement('div'),rm=document.createElement('div');ip.id='ip';rm.id='rm';
  ip.innerHTML='<div class="ik">LO QUE MÁS IMPORTA MOLDAVIA</div>'+PRD.map(p=>`<div class="ir"><span class="ie">${p[0]}</span><div class="im"><div class="ix"><span>${p[1]}</span><b><span data-v="${p[2]}" data-f="m">${fM(0)}</span> · <span data-v="${p[3]}" data-f="p">${fP(0)}</span></b></div><div class="ib"><i data-w="${p[3]/9.1*100}"></i></div></div></div>`).join('');
- rm.innerHTML='<svg viewBox="0 0 80 110"><circle cx="40" cy="22" r="14" fill="#f2c4a1"/><path d="M26 20c0-12 8-16 15-16s14 5 13 16c-3-5-8-7-14-7s-10 2-14 7z" fill="#3b2a22"/><rect x="22" y="38" width="36" height="42" rx="14" fill="#1d4ea8"/><rect x="26" y="78" width="12" height="26" rx="5" fill="#14306b"/><rect x="42" y="78" width="12" height="26" rx="5" fill="#14306b"/><rect x="58" y="76" width="18" height="24" rx="4" fill="#b8793a"/><path d="M63 76v-5h8v5" stroke="#6b4423" stroke-width="2" fill="none"/><path d="M58 46l12 -8" stroke="#1d4ea8" stroke-width="9" stroke-linecap="round"/></svg><div class="bub"><div class="bk">REMESAS DE MOLDAVOS EN EL EXTERIOR</div><div class="bv"><span data-v="10.5" data-f="p">0,0 %</span><small>del PIB</small></div><div class="bv"><span data-v="1918" data-f="n">0</span><small>millones de US$ al año</small></div><div class="bk" style="margin-top:4px;letter-spacing:.05em">Banco Mundial · 2024</div></div>';
+ rm.innerHTML='<svg viewBox="0 0 80 110"><circle cx="40" cy="22" r="14" fill="#f2c4a1"/><path d="M26 20c0-12 8-16 15-16s14 5 13 16c-3-5-8-7-14-7s-10 2-14 7z" fill="#3b2a22"/><rect x="22" y="38" width="36" height="42" rx="14" fill="#1d4ea8"/><rect x="26" y="78" width="12" height="26" rx="5" fill="#14306b"/><rect x="42" y="78" width="12" height="26" rx="5" fill="#14306b"/><rect x="58" y="76" width="18" height="24" rx="4" fill="#b8793a"/><path d="M63 76v-5h8v5" stroke="#6b4423" stroke-width="2" fill="none"/><path d="M58 46l12 -8" stroke="#1d4ea8" stroke-width="9" stroke-linecap="round"/></svg><div class="bub"><div class="bk">REMESAS DE MOLDAVOS EN EL EXTERIOR</div><div class="bv"><span data-v="10.5" data-f="p">0,0 %</span><small>del PIB</small></div><div class="bv"><span data-v="1918" data-f="n">0</span><small>millones de US$ al año</small></div><div class="bk" style="margin-top:4px;letter-spacing:.05em">Banco Mundial · 2025</div></div>';
  ov.append(ip,rm);render();
  camTo(impCam(),1500).then(()=>{hold=impCam}).catch(()=>{});
  await sleep(900);labs.forEach(g=>on(g));on(mM);await sleep(500);
@@ -489,7 +489,7 @@ async function sEco(){
   h(`<div class="p10" id="l10"><div class="k10">ESTRUCTURA DEL PIB · 2025</div><div class="dn"><svg viewBox="0 0 200 200">${arcs}<text class="dd" x="100" y="94" text-anchor="middle">PIB</text><text class="dc" x="100" y="118" text-anchor="middle">2025</text></svg><div class="lgs">${SEC.map(s=>`<div class="lg" style="--c:${s[4]}">${ic(s[0])}<b>${s[1]}</b><span>${s[2]}</span></div>`).join('')}</div></div></div>`),
   h(`<div id="c10"><svg id="mp10" viewBox="${mnx-.1} ${mny-.1} ${mxx-mnx+.2} ${mxy-mny+.2}"><g fill="rgba(34,211,238,.07)" stroke="#22d3ee" stroke-linejoin="round"><path d="${MPP}" stroke-width="5" stroke-opacity=".18" vector-effect="non-scaling-stroke"/><path d="${TRP}" stroke-width="5" stroke-opacity=".18" vector-effect="non-scaling-stroke"/><path d="${MPP}" stroke-width="1.3" vector-effect="non-scaling-stroke"/><path d="${TRP}" stroke-width="1.3" vector-effect="non-scaling-stroke"/></g><circle cx="${cx}" cy="${cy}" r=".06" fill="#f6c744"/></svg><div><div class="gk10">PIB TOTAL · 2025</div><div class="gn10">353.520,9</div><div class="gm10">MILLONES DE MDL</div><div class="gu10">≈ 20.350 millones USD</div></div></div>`),
   h(`<div class="p10" id="r10"><div class="k10">EMPRESAS DESTACADAS</div>${EMP.map((e,i)=>`<div class="rk" style="animation-delay:${-i*.8}s"><div class="ri">${ic(e[0])}</div><div class="rt"><b>${e[1]}</b><small>${e[2]}</small><u><i style="width:${e[4]}%"></i></u></div><strong>${e[3]}</strong></div>`).join('')}<div class="on10">Otras empresas relevantes: Imensitate, Premier Energy, Petrom-Moldova/Lukoil-Moldova, Termoelectrica y Fly One</div></div>`),
-  h('<div class="wf">Datos correspondientes a 2025. Cifras empresariales y participaciones aproximadas; verificar con fuentes oficiales</div>'));
+  h('<div class="wf">Datos correspondientes a 2025. Cifras empresariales y participaciones aproximadas</div>'));
  const lay=()=>{const s=$('#ln10');if(!s)return;s.setAttribute('viewBox',`0 0 ${innerWidth} ${innerHeight}`);s.innerHTML='';if(innerWidth/innerHeight<1.15)return;
   const m=$('#mp10').getBoundingClientRect();$('#l10').querySelectorAll('.lg').forEach((r,i)=>{const b=r.getBoundingClientRect(),x1=m.left+m.width*.1,y1=m.top+m.height*(.2+.2*i),x2=b.right+4,y2=b.top+b.height/2,mx=(x1+x2)/2,p=el('path',{class:'cn10',d:`M${x1} ${y1}C${mx} ${y1} ${mx} ${y2} ${x2} ${y2}`,stroke:SEC[i][4]},s);p.style.animationDelay=(-i*.8)+'s'})};
  relayout=lay;lay();setTimeout(lay,400);
@@ -549,74 +549,103 @@ async function sFDI(){
   h('<div class="fdp" id="fdl"><div class="fdh">¿POR QUÉ INVIERTEN AQUÍ?</div><div class="fdi"><b>Puerta a la UE:</b> Acuerdo de Asociación y libre comercio; candidata desde 2022</div><div class="fdi"><b>Cercanía:</b> Rumanía comparte idioma e historia</div><div class="fdi"><b>Costos competitivos:</b> mano de obra más barata que en la UE</div></div>'),
   h('<div class="fdp" id="fdr"><div class="fdh">CÓMO LEER LOS DATOS</div><div class="fdi"><b>Cada %</b> = parte del stock de IED según el país del inversor</div><div class="fdi"><b>≈72 %</b> de la IED viene de la UE</div><div class="fdi"><b>&gt;65 %</b> de los flujos se reinvierte en el país</div><div class="fdi"><b>≈63 %</b> en 4 sectores: industria, comercio, TIC y finanzas</div></div>'),
   h('<div id="fdb">Capital, empresas y conexiones internacionales que impulsan la economía moldava</div>'),
-  h('<div class="wf">Participaciones y montos aproximados según la tabla proporcionada; verificar con estadísticas oficiales de inversión extranjera directa. Contexto: Banco Nacional de Moldavia e Invest Moldova (2024–2026)</div>'));
+  h('<div class="wf">Participaciones y montos aproximados según la tabla proporcionada, inversión extranjera directa. Contexto: Banco Nacional de Moldavia e Invest Moldova (2024–2026)</div>'));
  render();on(all);
  camTo(fdiCam(.933),6000).catch(()=>{});
 }
 
-/* ============ ESCENA 11 — WINE, CULTURE & HERITAGE (EN) ============ */
-function cuCss(){if($('#cu-css'))return;const s=document.createElement('style');s.id='cu-css';s.textContent=
- "@keyframes cuin{from{opacity:0}}@keyframes cuz{from{transform:scale(1)}to{transform:scale(1.045) translateY(-.6%)}}@keyframes cup{50%{opacity:.5}}@keyframes cut{0%,100%{opacity:.2}50%{opacity:1}}@keyframes cug{50%{opacity:.75}}"+
- "#cub{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 82%,rgba(125,32,64,.38),transparent 62%);animation:cuin .9s both}"+
- "#cuw{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding-top:6vh;pointer-events:none;animation:cuin 1s both}"+
- "#cuv{width:min(46vw,calc(60vh*1.154));aspect-ratio:600/520;height:auto;animation:cuz 26s ease-in-out infinite alternate}"+
- ".cuP{animation:cup 5s ease-in-out infinite}.cuT{animation:cut 3s ease-in-out infinite}"+
- "#cuh{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + 9.5vh);text-align:center;pointer-events:none;animation:cuin 1s both}"+
- "#cuh h2{font:600 clamp(20px,2.6vw,40px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:.07em;color:#f4ead2;margin:0}#cuh h2 span{color:#e9c46a}"+
- "#cuh p{margin-top:7px;font:italic clamp(12px,1.35vw,19px) Georgia,serif;color:#d9c9a3}"+
- ".cuS{position:fixed;top:25vh;bottom:13vh;display:flex;flex-direction:column;justify-content:space-around;width:min(22vw,310px);pointer-events:none}"+
- "#cuL{left:max(3vw,70px)}#cuR{right:max(3vw,70px)}"+
- ".cuK{position:relative;padding:12px 14px;background:rgba(16,16,44,.66);border:1px solid rgba(214,174,86,.38);border-radius:12px;animation:cuin 1.1s both}"+
- ".cuK:after{content:'';position:absolute;inset:-1px;border-radius:12px;border:1px solid #f0c75e;opacity:.15;animation:cug 4.5s ease-in-out infinite}.cuS+.cuS .cuK:after{animation-delay:-2s}.cuK+.cuK:after{animation-delay:-1s}"+
- ".cuK b{display:block;font:800 clamp(10.5px,1vw,14px) 'DM Sans',sans-serif;letter-spacing:.14em;color:#e9c46a;margin-bottom:5px}"+
- ".cuK p{margin:0;font:500 clamp(10.5px,.98vw,13.5px)/1.4 'DM Sans',sans-serif;color:#f4ead2}"+
- "#cuf{position:fixed;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 5vh);text-align:center;font:600 clamp(12px,1.4vw,19px) 'DM Sans',sans-serif;letter-spacing:.34em;color:#e9c46a;padding:0 4vw;pointer-events:none;animation:cuin 1.2s both}"+
- "@media (max-aspect-ratio:23/20){#cuw{padding-top:0;align-items:flex-start;margin-top:21vh}#cuv{width:min(78vw,calc(34vh*1.154))}.cuS{top:auto;bottom:11vh;width:47vw;gap:8px}#cuL{left:2vw}#cuR{right:2vw}.cuK{padding:8px 9px}.cuK p{font-size:9.5px}.cuK b{font-size:9.5px}}";
+/* ============ ESCENA 12 — THE JOC NATIONAL BALLET OF MOLDOVA (EN) ============ */
+function joCss(){if($('#jo-css'))return;const s=document.createElement('style');s.id='jo-css';s.textContent=
+ "@keyframes joIn{from{opacity:0}}"+
+ "@keyframes joUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}"+
+ "@keyframes joRise{from{opacity:0;transform:translateY(22px) scale(.94)}to{opacity:1;transform:none}}"+
+ "@keyframes joSway{0%,100%{transform:translateY(0) rotate(-.5deg)}50%{transform:translateY(-5px) rotate(.5deg)}}"+
+ "@keyframes joDraw{to{stroke-dashoffset:0}}"+
+ "@keyframes joLn{from{transform:scaleX(0)}to{transform:scaleX(1)}}"+
+ "@keyframes joPop{from{opacity:0;transform:scale(.3)}to{opacity:.9;transform:scale(1)}}"+
+ "@keyframes joTw{0%,100%{opacity:.9;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}"+
+ "#job{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 28% 62%,rgba(200,121,131,.30),transparent 58%),radial-gradient(ellipse at 50% 100%,rgba(125,32,64,.30),transparent 62%);animation:joIn 1.2s both}"+
+ "#jom{position:fixed;left:max(4vw,70px);right:max(4vw,70px);top:15vh;bottom:6vh;display:grid;grid-template-columns:1fr 1.05fr;grid-template-rows:minmax(0,1fr);align-items:center;gap:clamp(18px,3vw,48px);pointer-events:none}"+
+ "#jov{align-self:stretch;min-height:0;display:flex;justify-content:center;animation:joRise 1.6s cubic-bezier(.22,.61,.36,1) .2s both}"+
+ "#jov svg{height:100%;width:auto;max-width:100%;overflow:visible}"+
+ ".joB{transform-origin:50% 50%;animation:joSway 5s ease-in-out 1.8s infinite}"+
+ ".joR{stroke-dasharray:1;stroke-dashoffset:1;animation:joDraw 2.6s cubic-bezier(.4,0,.2,1) .35s forwards}"+
+ ".joR2{animation:joIn 1.8s ease 1s both}"+
+ ".joS path,.joS circle{transform-box:fill-box;transform-origin:center;fill:#e9c46a;animation:joPop .8s ease var(--d) both,joTw 3.4s ease-in-out calc(var(--d) + .8s) infinite}"+
+ "#joc{padding:clamp(24px,3.2vw,50px);background:rgba(16,16,44,.66);border:1px solid rgba(214,174,86,.38);border-radius:26px;box-shadow:0 22px 65px rgba(0,0,0,.32);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);max-height:100%;animation:joUp 1.3s cubic-bezier(.22,.61,.36,1) .6s both}"+
+ "#joc>*{animation:joUp 1.1s cubic-bezier(.22,.61,.36,1) both}"+
+ "#joc .joE{display:flex;align-items:center;gap:13px;margin-bottom:clamp(14px,2.4vh,28px);color:#e9c46a;font:600 clamp(10px,.9vw,12px) 'DM Sans',sans-serif;letter-spacing:.28em;text-transform:uppercase;animation-delay:.95s}"+
+ "#joc .joE:after{content:'';width:40px;height:1px;background:rgba(233,196,106,.65);transform-origin:left;animation:joLn 1s ease 1.6s both}"+
+ "#joc h2{margin:0 0 clamp(14px,2.4vh,26px);font:500 clamp(26px,3.3vw,54px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.01em;color:#f4ead2;animation-delay:1.15s}#joc h2 span{color:#e9c46a}"+
+ "#joc p{margin:0;max-width:560px;font:400 clamp(12.5px,1.15vw,17px)/1.85 'DM Sans',sans-serif;color:#d9c9a3;animation-delay:1.4s}"+
+ "@media (max-aspect-ratio:23/20){#jom{left:4vw;right:4vw;top:13vh;bottom:4vh;grid-template-columns:1fr;grid-template-rows:minmax(0,38%) auto;align-content:start;align-items:start;gap:10px}#joc{padding:18px 20px;border-radius:20px}#joc .joE{font-size:9px;letter-spacing:.2em;margin-bottom:10px}#joc h2{font-size:clamp(24px,7vw,34px);margin-bottom:10px}#joc p{font-size:12px;line-height:1.65}}"+
+ "@media (prefers-reduced-motion:reduce){.joB,.joS path,.joS circle{animation:none}.joR{animation:none;stroke-dashoffset:0}}";
  document.head.appendChild(s)}
-async function sCulture(){
- setTag('SCENE 12 — WINE & HERITAGE');cuCss();
+async function sBallet(){
+ setTag('SCENE 12 — CULTURAL INSIGHT');joCss();
  document.documentElement.classList.add('night');map.classList.add('vo');
- const mnx=26.6*K,mxx=30.14*K,mny=-Y(48.5),mxy=-Y(45.45),vb=`${mnx-.1} ${mny-.1} ${mxx-mnx+.2} ${mxy-mny+.2}`;
- let rows='',lt='';
- for(let i=-7;i<=7;i++)rows+=`<path d="M${300+i*10} 375L${300+i*95} 520"/>`;
- [-5,-3,-1,1,3,5].forEach((i,k)=>[.28,.58,.86].forEach((t,j)=>{const x=300+i*10+(i*95-i*10)*t,y=375+145*t;
-  lt+=`<circle class="cuT" cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(1.8+t*1.6).toFixed(1)}" fill="#ffd98a" style="animation-delay:${(-(k*.7+j*.9)).toFixed(1)}s"/>`}));
- const svg=`<svg id="cuv" viewBox="0 0 600 520"><defs>
- <radialGradient id="cuGl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f6c75a" stop-opacity=".55"/><stop offset="1" stop-color="#f6c75a" stop-opacity="0"/></radialGradient>
- <linearGradient id="cuSun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd37a"/><stop offset="1" stop-color="#e2823a"/></linearGradient>
- <linearGradient id="cuW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a3243f"/><stop offset="1" stop-color="#4b0f25"/></linearGradient>
- <linearGradient id="cuBt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#16251f"/><stop offset=".45" stop-color="#2c4237"/><stop offset="1" stop-color="#0d1713"/></linearGradient>
- <clipPath id="cuBw"><path d="M-48 0H48C48 70 28 112 0 118C-28 112 -48 70 -48 0Z"/></clipPath>
- <path id="cuLf" d="M0 0C14 -16 34 -14 38 6C26 10 12 12 0 0Z" fill="#2f5d3a"/>
- <g id="cuG"><path d="M0 -12V6" stroke="#4a3b24" stroke-width="3" fill="none"/>
-  <g fill="#6c1b3e"><circle cx="-22.5" cy="10" r="9.5"/><circle cx="7.5" cy="10" r="9.5"/><circle cx="-15" cy="25" r="9.5"/><circle cx="15" cy="25" r="9.5"/><circle cx="0" cy="54" r="9.5"/></g>
-  <g fill="#52122f"><circle cx="-7.5" cy="10" r="9.5"/><circle cx="22.5" cy="10" r="9.5"/><circle cx="0" cy="25" r="9.5"/><circle cx="-7.5" cy="40" r="9.5"/><circle cx="7.5" cy="40" r="9.5"/></g>
-  <g fill="#fff" opacity=".28"><circle cx="-25" cy="7" r="2.2"/><circle cx="5" cy="7" r="2.2"/><circle cx="-17" cy="22" r="2.2"/><circle cx="-2" cy="51" r="2.2"/></g></g>
- </defs>
- <circle class="cuP" cx="300" cy="320" r="230" fill="url(#cuGl)"/>
- <svg x="150" y="28" width="300" height="340" viewBox="${vb}" overflow="visible"><path d="${MPP}" fill="rgba(233,196,106,.07)" stroke="#e9c46a" stroke-opacity=".5" stroke-width=".02" stroke-linejoin="round"/><path d="${TRP}" fill="rgba(233,196,106,.07)" stroke="#e9c46a" stroke-opacity=".5" stroke-width=".02" stroke-linejoin="round"/></svg>
- <circle cx="300" cy="340" r="78" fill="url(#cuSun)" opacity=".95"/>
- <path d="M0 360Q150 322 300 350T600 340V520H0Z" fill="#1a1a3c"/><path d="M0 400Q160 365 320 392T600 380V520H0Z" fill="#2a1530"/><path d="M0 450Q200 420 400 445T600 435V520H0Z" fill="#190c1c"/>
- <g stroke="#9a3358" stroke-opacity=".6" stroke-width="2" fill="none">${rows}</g>${lt}
- <path d="M0 78C70 52 110 72 135 112" stroke="#4a3b24" stroke-width="4" fill="none" stroke-linecap="round"/><use href="#cuLf" transform="translate(38 66) rotate(-25)"/><use href="#cuLf" transform="translate(88 76) rotate(25) scale(.9)"/><use href="#cuG" transform="translate(135 112) scale(1.05)"/>
- <path d="M600 70C540 44 485 66 450 108" stroke="#4a3b24" stroke-width="4" fill="none" stroke-linecap="round"/><use href="#cuLf" transform="translate(560 54) rotate(200) scale(.95)"/><use href="#cuLf" transform="translate(500 66) rotate(-160)"/><use href="#cuG" transform="translate(450 110) scale(1.05)"/>
- <g transform="translate(200 140) scale(.95)"><ellipse cx="0" cy="338" rx="42" ry="7" fill="#000" opacity=".35"/>
-  <path d="M-11 0H11V92C11 118 32 126 32 160V320Q32 334 18 334H-18Q-32 334 -32 320V160C-32 126 -11 118 -11 92Z" fill="url(#cuBt)" stroke="#e9c46a" stroke-opacity=".35"/>
-  <rect x="-12.5" y="-6" width="25" height="44" rx="3" fill="#6d1429"/><rect x="-12.5" y="30" width="25" height="4" fill="#e9c46a"/>
-  <rect x="-27" y="190" width="54" height="86" rx="3" fill="#f4ead2"/><rect x="-23" y="194" width="46" height="78" rx="2" fill="none" stroke="#9c2a45"/>
-  <text x="0" y="232" text-anchor="middle" font-size="9" fill="#5a1a2b" font-family="Georgia,serif" letter-spacing="1.5">MOLDOVA</text><path d="M-14 240H14" stroke="#9c2a45"/><text x="0" y="254" text-anchor="middle" font-size="7.5" fill="#5a1a2b" font-family="Georgia,serif" letter-spacing="1.2">RED WINE</text>
-  <path d="M-22 150V300" stroke="#fff" stroke-opacity=".12" stroke-width="5" stroke-linecap="round"/></g>
- <g transform="translate(385 232) scale(1.05)"><ellipse cx="0" cy="222" rx="52" ry="7" fill="#000" opacity=".35"/>
-  <g clip-path="url(#cuBw)"><rect x="-50" y="36" width="100" height="90" fill="url(#cuW)"/><ellipse cx="0" cy="36" rx="46" ry="6" fill="#b02f4d"/></g>
-  <path d="M-48 0H48C48 70 28 112 0 118C-28 112 -48 70 -48 0Z" fill="#fff" fill-opacity=".05" stroke="#f4ead2" stroke-opacity=".75" stroke-width="1.6"/>
-  <path d="M0 118V212" stroke="#f4ead2" stroke-opacity=".75" stroke-width="3"/><ellipse cx="0" cy="214" rx="34" ry="6" fill="none" stroke="#f4ead2" stroke-opacity=".75" stroke-width="1.6"/>
-  <path d="M-36 20Q-38 60 -22 90" stroke="#fff" stroke-opacity=".3" stroke-width="3" fill="none" stroke-linecap="round"/></g></svg>`;
- const card=(t,p)=>`<div class="cuK"><b>${t}</b><p>${p}</p></div>`,h=s=>{const d=document.createElement('div');d.innerHTML=s;return d.firstChild};
- $('#ov').append(h('<div id="cub"></div>'),h(`<div id="cuw">${svg}</div>`),
-  h('<div id="cuh"><h2>MORE THAN WINE <span>— A CULTURAL HERITAGE</span></h2><p>A tradition that brings generations together.</p></div>'),
-  h('<div class="cuS" id="cuL">'+card('5,000 YEARS OF HISTORY','Winemaking in Moldova has ancient roots and remains deeply connected to rural life and family traditions.')+card('A SYMBOL OF IDENTITY','Wine represents hospitality, pride and the connection between generations.')+'</div>'),
-  h('<div class="cuS" id="cuR">'+card('TRADITIONS &amp; CELEBRATIONS','Wine is part of family gatherings, weddings, harvest celebrations and the welcoming of guests.')+card('A LIVING HERITAGE','Traditional cellars, vineyard landscapes and local grape varieties help preserve Moldova’s cultural identity.')+'</div>'),
-  h('<div id="cuf">IN EVERY GLASS, A STORY OF MOLDOVA.</div>'));
+ const svg=`<svg viewBox="0 0 500 700" role="img" aria-label="Illustration of a ballerina en pointe in a traditional embroidered ballet costume" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+   <linearGradient id="joSk" x1="190" y1="250" x2="300" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#fff9f5"/><stop offset=".55" stop-color="#f2d9dc"/><stop offset="1" stop-color="#d5a5af"/></linearGradient>
+   <linearGradient id="joBo" x1="230" y1="190" x2="285" y2="290" gradientUnits="userSpaceOnUse"><stop stop-color="#d9a6ad"/><stop offset="1" stop-color="#875866"/></linearGradient>
+   <linearGradient id="joSn" x1="220" y1="95" x2="255" y2="180" gradientUnits="userSpaceOnUse"><stop stop-color="#f5d4c2"/><stop offset="1" stop-color="#d79d87"/></linearGradient>
+   <radialGradient id="joGl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe9e1" stop-opacity=".30"/><stop offset="1" stop-color="#ffe9e1" stop-opacity="0"/></radialGradient>
+  </defs>
+  <circle cx="250" cy="345" r="205" fill="url(#joGl)"/>
+  <circle class="joR" pathLength="1" cx="250" cy="345" r="205" fill="none" stroke="#e9c46a" stroke-opacity=".6" stroke-width="1.4"/>
+  <circle class="joR2" cx="250" cy="345" r="185" fill="none" stroke="#e9c46a" stroke-opacity=".4" stroke-width="1" stroke-dasharray="2 8"/>
+  <ellipse cx="253" cy="624" rx="130" ry="13" fill="#000" opacity=".35"/>
+  <g class="joB">
+   <path d="M262 354 C292 402 325 435 361 454 C379 463 391 477 405 481 C413 483 420 478 414 472 C397 458 383 445 371 432 C339 398 318 353 301 322Z" fill="url(#joSn)" stroke="#cf9885" stroke-width="1.3"/>
+   <path d="M395 470 Q412 465 424 476 Q430 482 419 487 L398 488 Q390 485 395 470Z" fill="#f3d5d0" stroke="#d9a8aa" stroke-width="1.2"/>
+   <path d="M398 470 L387 445 M407 472 L398 448" stroke="#d5a4aa" stroke-width="2" stroke-linecap="round"/>
+   <path d="M252 356 C247 414 251 465 246 518 C244 554 240 585 239 610 L257 613 C269 570 279 536 280 508 C283 456 289 408 291 365Z" fill="url(#joSn)" stroke="#cf9885" stroke-width="1.2"/>
+   <path d="M239 604 Q249 609 258 605 L263 622 Q260 630 246 631 L226 629 Q221 625 229 619Z" fill="#f4d9d4" stroke="#d5a3a5" stroke-width="1.3"/>
+   <path d="M240 608 L237 627 M249 609 L249 628 M258 608 L260 624" stroke="#c68e9a" stroke-width="1.6" stroke-linecap="round"/>
+   <path d="M239 208 C202 192 168 174 137 157 C111 143 90 129 70 121 C61 117 53 121 60 128 C85 151 113 169 140 187 C173 209 202 228 232 237Z" fill="url(#joSn)" stroke="#cf9885" stroke-width="1.3"/>
+   <path d="M68 121 Q55 110 48 112 Q45 115 53 122 L64 131 Q72 133 76 127Z" fill="url(#joSn)"/>
+   <path d="M277 209 C291 174 304 143 315 111 C320 95 325 78 332 64 C337 55 345 58 344 66 C342 88 335 111 330 131 C322 165 312 202 300 232Z" fill="url(#joSn)" stroke="#cf9885" stroke-width="1.3"/>
+   <path d="M332 65 Q330 49 338 42 Q343 39 342 49 L345 59 L350 45 Q354 41 354 49 L350 66 Q345 76 338 75Z" fill="url(#joSn)"/>
+   <path d="M239 164 L238 193 Q251 208 269 192 L263 162Z" fill="url(#joSn)"/>
+   <ellipse cx="253" cy="139" rx="27" ry="34" fill="url(#joSn)"/>
+   <path d="M273 135 Q286 141 276 149 L268 151" fill="none" stroke="#c58778" stroke-width="1.5" stroke-linecap="round"/>
+   <path d="M265 132 Q270 129 275 132" fill="none" stroke="#6d4a4e" stroke-width="2" stroke-linecap="round"/>
+   <path d="M228 137 C220 113 233 96 254 100 C275 101 285 118 278 139 L270 119 Q250 126 235 116Z" fill="#543b45"/>
+   <circle cx="254" cy="98" r="19" fill="#543b45"/>
+   <circle cx="254" cy="98" r="10" fill="#6b4a52"/>
+   <circle cx="270" cy="103" r="14" fill="#5a3e47"/>
+   <g fill="#dba6b2"><circle cx="282" cy="111" r="5"/><circle cx="289" cy="106" r="4"/><circle cx="287" cy="115" r="4"/></g>
+   <circle cx="286" cy="110" r="2.2" fill="#c49a5d"/>
+   <path d="M235 185 Q253 196 273 184 C284 204 289 232 291 267 L225 267 C226 237 228 206 235 185Z" fill="url(#joBo)"/>
+   <path d="M239 188 Q253 203 269 188 L277 215 Q254 229 232 214Z" fill="#f6e8e1"/>
+   <path d="M245 199 L258 218 L267 198" fill="none" stroke="#c99a9d" stroke-width="2"/>
+   <path d="M237 222 L278 222 M234 231 L281 231 M232 240 L284 240" stroke="#e9c9c8" stroke-width="1.3"/>
+   <path d="M235 190 Q216 185 207 202 Q200 218 213 232 L231 225Z" fill="#fff5ef" stroke="#e6c9c9" stroke-width="1.3"/>
+   <path d="M273 190 Q293 186 300 203 Q307 217 292 232 L278 223Z" fill="#fff5ef" stroke="#e6c9c9" stroke-width="1.3"/>
+   <path d="M207 208 Q218 214 226 207 M209 217 Q219 222 229 215 M291 207 Q281 214 276 207 M294 217 Q284 222 274 215" fill="none" stroke="#d9a9b0" stroke-width="1.5"/>
+   <path d="M226 258 Q205 269 181 303 Q207 325 250 327 Q291 326 322 300 Q298 270 278 258 Q254 269 226 258Z" fill="url(#joSk)" stroke="#d9afb6" stroke-width="1.4"/>
+   <path d="M220 266 Q204 282 192 303 Q220 315 250 317 Q283 315 310 301 Q296 280 282 266" fill="none" stroke="#fffaf6" stroke-width="8" stroke-linecap="round"/>
+   <path d="M188 302 Q251 333 316 300 M198 291 Q252 320 306 291 M211 279 Q252 305 294 279" fill="none" stroke="#d5a0aa" stroke-width="1.5"/>
+   <g fill="none" stroke="#b77d88" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M211 290 l6 -6 l6 6 l-6 6Z M217 284 v12 M211 290 h12"/>
+    <path d="M244 302 l6 -7 l6 7 l-6 7Z M250 295 v14 M243 302 h14"/>
+    <path d="M278 289 l5 -6 l5 6 l-5 6Z M283 283 v12 M277 289 h12"/>
+    <path d="M231 315 l4 -5 l4 5 l-4 5Z M235 310 v10"/>
+    <path d="M267 315 l4 -5 l4 5 l-4 5Z M271 310 v10"/>
+   </g>
+   <g fill="#b77d88"><circle cx="205" cy="307" r="2.2"/><circle cx="294" cy="307" r="2.2"/><circle cx="250" cy="282" r="2.2"/></g>
+   <path d="M228 258 Q252 268 279 258" fill="none" stroke="#f9e8e4" stroke-width="5"/>
+   <path d="M252 264 Q239 279 231 270 Q231 263 252 264 Q269 277 276 267 Q276 261 252 264Z" fill="#c98d9b"/>
+   <path d="M239 600 C221 587 222 579 236 575 M250 604 C267 591 267 583 256 579" fill="none" stroke="#d7a4ad" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+  <g class="joS">
+   <path style="--d:1.5s" d="M96 220 L101 234 L115 239 L101 244 L96 258 L91 244 L77 239 L91 234Z"/>
+   <path style="--d:1.8s" d="M383 313 L387 324 L398 328 L387 332 L383 343 L379 332 L368 328 L379 324Z"/>
+   <circle style="--d:2.1s" cx="130" cy="370" r="3"/><circle style="--d:2.3s" cx="365" cy="175" r="2.5"/><circle style="--d:2.5s" cx="151" cy="135" r="2"/>
+  </g></svg>`;
+ const h=s=>{const d=document.createElement('div');d.innerHTML=s;return d.firstChild};
+ $('#ov').append(h('<div id="job"></div>'),
+  h(`<div id="jom"><div id="jov">${svg}</div><article id="joc"><div class="joE">Cultural Insight</div><h2>The JOC National<br><span>Ballet of Moldova</span></h2><p>The JOC National Ballet revolutionized character dance by transforming folk traditions into a high-performance discipline. It systematized Balkan and Moldovan movements with extraordinary rigor, turning folklore into a powerful complement to classical ballet training. Heavy boot stomps, acrobatic turns and rapid shifts of weight build strength, endurance and muscular power—showing that traditional dance is not just a visual spectacle, but a demanding art of movement.</p></article></div>`));
 }
 
 /* ============ ESCENA 13 — NEGOCIACIÓN (Colombia → Moldavia) ============ */
@@ -1226,7 +1255,7 @@ async function sNeg(){
   ngSt.mode='intro';
 }
 
-const scenes=[s1,s2,s3,sImp,s4,sHist,sPol,sWar,sODS,sEco,sFDI,sCulture,sNeg];
+const scenes=[s1,s2,s3,sImp,s4,sHist,sPol,sWar,sODS,sEco,sFDI,sBallet,sNeg];
 /* ============ NAVEGACIÓN ============ */
 function ui(){const f=$('#pbf');f.style.width=((idx+1)/TOTAL*100)+'%';$('#prev').disabled=false;$('#next').disabled=idx>=scenes.length-1}
 function goHome(){tok++;reset();idx=-1;started=false;off($('#scene'));$('#pb').classList.remove('show');$('#pbf').style.width='0';$('#prev').classList.remove('show');$('#next').classList.remove('show');$('#intro').classList.remove('out');$('#play').classList.remove('out');camTo(home(),1500).catch(()=>{})}
